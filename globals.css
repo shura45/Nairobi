@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neuebit";
+  src: url("../public/neuebit.woff") format("woff"),
+    url("../public/neuebit.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "retro";
+  src: url("../public/retro.woff") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "fusion-pixel";
+  src: url("../public/fusion-pixel.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+ @import url('https://fonts.cdnfonts.com/css/indie-flower');
+
+                
+                
+
+body {
+  @apply text-white scroll-smooth bg-dark;
+}
+main {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 10vh;
+}
+
+main h1 {
+  font-weight: 600;
+  font-size: 34px;
+  letter-spacing: -0.4px;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.click-to-copy-container {
+  position: relative;
+}
+
+button.click-to-copy, a.click-to-copy-fallback {
+  background: #21FA90;
+  border: none;
+  box-shadow: none;
+  padding: 1rem;
+  border-radius: .25rem;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: #07070A;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+button.click-to-copy + span {
+
+  display: none;
+
+  margin-left: 1rem;
+  background: #DADADA;
+  padding: .5rem;
+  border-radius: .2rem;
+  position: absolute;
+  top: .75rem;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  font-weight: 600;
+  color: #666;
+}
+
+button.click-to-copy + span:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(218, 218, 218, 0);
+	border-right-color: #DADADA;
+	border-width: 6px;
+	margin-top: -6px;
+}
+
+button.click-to-copy.is-copied + span {
+  display: initial;
+}
+
+a.click-to-copy-fallback {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+
+  button.click-to-copy {
+    display: none;
+  }
+  
+
+  a.click-to-copy-fallback {
+    display: block;
+  }
+}
+
+a:link {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #5be2fa;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Bungee);
+
+.container {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+.text {
+  font-size: 5.9vw;
+  -webkit-text-fill-color: #00ff9148;
+  background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0) 65%
+    ) -100% / 50% no-repeat currentColor;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shark-txt 2s infinite;
+  transform: translate3d(473px, 177px, 10px);rotate: 333deg;
+}
+
+@keyframes shark-txt {
+  from {
+    background-position: -100%;
+  }
+  to {
+    background-position: 200%;
+  }
+}
+
+
+img,
+canvas,
+.clear {
+  /* We have a lot of pixel art, so let's default to this instead of some modern blurred renderer */
+  image-rendering: pixelated;
+}
+
+.neuebit {
+  font-family: "Neuebit", sans-serif;
+}
+
+.retro {
+  font-family: "retro", sans-serif;
+}
+
+.fusion-pixel {
+  font-family: "fusion-pixel", sans-serif;
+}
+
+@keyframes bobbing {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the value as needed */
+  }
+}
+
+.bobbing {
+  animation: bobbing 2s infinite; /* Adjust the duration as needed */
+}
+
+.hue-rot {
+  filter: hue-rotate(-65deg) brightness(1.8);
+}
+
+::selection {
+  background: #5be2fa;
+}
+
+#background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+#background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse, mediumturquoise, darkslateblue);
+  filter: url(#grainy);
+}
+
+.grainy-bg {
+  background: radial-gradient(ellipse, black, transparent);
+  opacity: 0.2;
+  filter: url(#grainy);
+}
+
+#background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
